@@ -1,0 +1,12 @@
+Disarankan untuk Mengimpor database agar aplikasi bisa jalan semestinya dan di database tambahkan trigger di table transaksi.
+code trigernya:
+
+nama trigger: transaksi_barang
+table :transaksi
+waktu: after
+kejadian :Insert
+
+BEGIN
+	UPDATE barang SET stok_barang=stok_barang-NEW.jumlah_beli
+    WHERE id=NEW.nama_barang;
+END
